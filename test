@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Graph {
-    private int n; // Anzahl der Knoten
-    private int m; // Anzahl der Kanten
+    private int n; // Anzahl Knoten
+    private int m; // Anzahl Kanten
     private List<List<Integer>> adjacencyArray; // Adjacency Array
 
     public Graph(int n, int m) {
