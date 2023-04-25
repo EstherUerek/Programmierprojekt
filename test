@@ -1,9 +1,13 @@
+import java.util.*;
+public class Graph {
+    private int n; // Anzahl Knoten
+    private int m; // Anzahl Kanten
 
-public class main {
-
-	public static void main(String[] args) {
-		System.out.println("Test");
-
-	}
-
+    private List<List<Integer>> adjacencyArray; \\Adjacency Array zur Speicherung des Graphen  adjacency list List adj_list = new ArrayList();
+    
+        public Graph(int n, int m) {
+        this.n = n;
+        this.m = m;
+        this.adjacencyArray = new ArrayList<>(n);
+    	}
 }
