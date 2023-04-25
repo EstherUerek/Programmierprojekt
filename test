@@ -1,13 +1,41 @@
 import java.util.*;
-public class Graph {
-    private int n; // Anzahl Knoten
-    private int m; // Anzahl Kanten
 
-    private List<List<Integer>> adjacencyArray; \\Adjacency Array zur Speicherung des Graphen  adjacency list List adj_list = new ArrayList();
-    
-        public Graph(int n, int m) {
+public class Graph {
+    private int n; // Anzahl der Knoten
+    private int m; // Anzahl der Kanten
+    private List<List<Integer>> adjacencyArray; // Adjacency Array
+
+    public Graph(int n, int m) {
         this.n = n;
         this.m = m;
         this.adjacencyArray = new ArrayList<>(n);
-    	}
+    }
+
+    // Fügt eine Kante zwischen Knoten u und v hinzu
+    public void addEdge(int u, int v) {
+        if (u >= n || v >= n) {
+            throw new IllegalArgumentException("Knoten existiert nicht!");
+        }
+
+        // Fügt die Kante zur Adjacency Array hinzu
+        if (adjacencyArray.get(u) == null) {
+            adjacencyArray.set(u, new ArrayList<>());
+        }
+        adjacencyArray.get(u).add(v);
+
+        // Fügt die Kante zur Adjacency Array hinzu
+        if (adjacencyArray.get(v) == null) {
+            adjacencyArray.set(v, new ArrayList<>());
+        }
+        adjacencyArray.get(v).add(u);
+    }
+
+    // Gibt die ausgehenden Kanten eines Knotens zurück
+    public List<Integer> getEdges(int u) {
+        if (u >= n) {
+            throw new IllegalArgumentException("Knoten existiert nicht!");
+        }
+
+        return adjacencyArray.get(u);
+    }
 }
